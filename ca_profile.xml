@@ -1,10 +1,12 @@
 <?xml version="1.0"?>
-<Profile>
-  <Name>chr0nzz</Name>
-  <DisplayName>chr0nzz</DisplayName>
+<CommunityApplications>
+  <Profile>
+Templates for [Traefik Manager](https://github.com/chr0nzz/traefik-manager), a web UI for managing Traefik routes, services, middlewares and certificates.
+
+Traefik Manager edits your Traefik dynamic config directly, so routes you create in the UI are ordinary YAML you can read, back up and revert. It also tracks certificate expiry, reads the access log, and talks to CrowdSec.
+
+Support and questions go to the [issue tracker](https://github.com/chr0nzz/traefik-manager/issues). Setup for Unraid is documented at [traefik-manager.xyzlab.dev/unraid.html](https://traefik-manager.xyzlab.dev/unraid.html).
+  </Profile>
   <Icon>https://raw.githubusercontent.com/chr0nzz/unraid-templates/main/icon.png</Icon>
   <WebPage>https://traefik-manager.xyzlab.dev</WebPage>
-  <Project>https://github.com/chr0nzz/traefik-manager</Project>
-  <Support>https://github.com/chr0nzz/traefik-manager/issues</Support>
-  <Overview>Unraid templates for Traefik Manager, a web UI for managing Traefik routes, services, middlewares and certificates.</Overview>
-</Profile>
+</CommunityApplications>

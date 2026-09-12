@@ -80,8 +80,9 @@ def test_the_maintainer_profile_is_present():
     profile = os.path.join(ROOT, 'ca_profile.xml')
     assert os.path.exists(profile), 'submission is blocked without ca_profile.xml in the repository root'
     root = ET.parse(profile).getroot()
-    assert root.tag == 'Profile'
-    assert (root.findtext('Name') or '').strip(), 'an empty Profile blocks submission'
+    assert root.tag == 'CommunityApplications', \
+        'Profile as the root element reads as no Profile field at all and the scan rejects it'
+    assert (root.findtext('Profile') or '').strip(), 'an empty Profile blocks submission'
 
 
 def test_the_licence_is_where_community_applications_looks():
@@ -92,6 +93,7 @@ def test_the_licence_is_where_community_applications_looks():
 def test_the_icons_are_committed_not_linked_somewhere_else():
     for path in TEMPLATES + [os.path.join(ROOT, 'ca_profile.xml')]:
         icon = ET.parse(path).getroot().findtext('Icon') or ''
+        assert icon, f'{os.path.basename(path)} has no icon'
         assert icon.startswith('https://raw.githubusercontent.com/chr0nzz/unraid-templates/main/'), \
             f'{os.path.basename(path)} points its icon outside this repository'
         local = os.path.join(ROOT, icon.rsplit('/main/', 1)[1])
