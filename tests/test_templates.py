@@ -82,7 +82,12 @@ def test_the_maintainer_profile_is_present():
     root = ET.parse(profile).getroot()
     assert root.tag == 'CommunityApplications', \
         'Profile as the root element reads as no Profile field at all and the scan rejects it'
-    assert (root.findtext('Profile') or '').strip(), 'an empty Profile blocks submission'
+    profile_text = root.findtext('Profile') or ''
+    assert profile_text.strip(), 'an empty Profile blocks submission'
+    assert profile_text == profile_text.strip(), \
+        'the accepted repositories all keep the text on the Profile line itself'
+    assert '\n' not in profile_text, 'keep it one line, blank lines inside Profile were rejected'
+    assert '](' not in profile_text, 'markdown links were rejected, write the URL as plain text'
 
 
 def test_the_licence_is_where_community_applications_looks():
