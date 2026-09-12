@@ -22,5 +22,8 @@ jobs:
       - name: Install pytest
         run: pip install pytest
 
+      - name: Fetch the app source for the settings parity check
+        run: git clone --depth 1 https://github.com/chr0nzz/traefik-manager .traefik-manager
+
       - name: Validate the templates
         run: pytest -q
