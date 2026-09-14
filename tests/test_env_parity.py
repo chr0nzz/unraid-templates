@@ -8,11 +8,11 @@ import pytest
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 APP = os.environ.get('TRAEFIK_MANAGER_SRC', os.path.join(ROOT, '.traefik-manager'))
 
-RUNTIME_SUPPLIED = {'HOSTNAME', 'PATH', 'TZ', 'PWD', 'HOME', 'PATH_INFO', 'SCRIPT_NAME', 'REMOTE_ADDR'}
+RUNTIME_SUPPLIED = {'HOSTNAME', 'PATH', 'TZ', 'PWD', 'HOME', 'PATH_INFO', 'SCRIPT_NAME'}
 NOT_FOR_UNRAID = {'CROWDSEC_STREAM_FRESH_SECONDS'}
-READ_INDIRECTLY = {'DOCKER_HOST', 'PLUGINS_DIR', 'ACCESS_LOG_PATH', 'ACME_JSON_PATH'}
-"""DOCKER_HOST is read by the docker library, and PLUGINS_DIR, ACCESS_LOG_PATH and ACME_JSON_PATH
-through a table of names, so none shows up as a string literal next to environ.get."""
+READ_INDIRECTLY = {'DOCKER_HOST', 'PLUGINS_DIR'}
+"""DOCKER_HOST is read by the docker library and PLUGINS_DIR inside a loop over a tuple of
+names, so neither shows up as a string literal next to environ.get."""
 
 pytestmark = pytest.mark.skipif(
     not os.path.isdir(APP),
@@ -38,7 +38,6 @@ def _host_env():
         found |= set(re.findall(r"environ\[\s*['\"]([A-Z][A-Z0-9_]*)['\"]", src))
         found |= set(re.findall(r"_env_bool\(\s*['\"]([A-Z][A-Z0-9_]*)['\"]", src))
         found |= set(re.findall(r"_cs_int_env\(\s*['\"]([A-Z][A-Z0-9_]*)['\"]", src))
-        found |= set(re.findall(r"failure_limit\(\s*['\"]([A-Z][A-Z0-9_]*)['\"]", src))
     return found - RUNTIME_SUPPLIED - NOT_FOR_UNRAID
 
 
