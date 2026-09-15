@@ -1,6 +1,6 @@
 # Traefik Manager for Unraid
 
-<img src="icon.png" alt="Traefik Manager" width="96" align="right">
+<img src="https://raw.githubusercontent.com/chr0nzz/unraid-templates/main/icon.png" alt="Traefik Manager" width="96" align="right">
 
 [Traefik Manager](https://github.com/chr0nzz/traefik-manager) is a web UI for managing Traefik routes, services, middlewares and certificates. It edits your Traefik dynamic config directly, so routes you create in the UI are ordinary YAML you can read, back up and revert.
 
