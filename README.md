@@ -45,7 +45,7 @@ The full documentation is at [traefik-manager.xyzlab.dev](https://traefik-manage
 - **Bugs and feature requests** - open an issue on the [Traefik Manager tracker](https://github.com/chr0nzz/traefik-manager/issues)
 - **Questions** - check the [documentation](https://traefik-manager.xyzlab.dev/) first, then ask on the [tracker](https://github.com/chr0nzz/traefik-manager/issues)
 - **Template problems** - a missing field, wrong default or broken icon in the Unraid template also goes on the [tracker](https://github.com/chr0nzz/traefik-manager/issues), mention Unraid in the title
-- **Chat** - questions and release news on the [Discord](https://discord.gg/a6NKyJsfc)
+- **Chat** - questions and release news on the [Discord](https://discord.gg/vRQCMrrjtz)
 
 When reporting a bug, include your Traefik Manager version, your Traefik version, and the container log from the Unraid **Docker** tab.
 
@@ -53,7 +53,7 @@ When reporting a bug, include your Traefik Manager version, your Traefik version
 
 - [Traefik Manager source](https://github.com/chr0nzz/traefik-manager)
 - [Documentation](https://traefik-manager.xyzlab.dev/)
-- [Discord](https://discord.gg/a6NKyJsfc)
+- [Discord](https://discord.gg/vRQCMrrjtz)
 - [Container image](https://github.com/chr0nzz/traefik-manager/pkgs/container/traefik-manager)
 - [Agent image](https://github.com/chr0nzz/traefik-manager/pkgs/container/traefik-manager-agent)
 
